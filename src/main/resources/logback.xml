@@ -1,0 +1,59 @@
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyMMdd HH:mm:ss} [%thread] %blue(%-3level) %cyan(%logger[%method:%line]) - %msg %n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="LOGALLFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- <file>log/yesInfo.log</file> -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- 파일이 하루에 한개씩 생성된다 -->
+			<fileNamePattern>/var/log/tomcat9/all/%d{yyyy-MM-dd}.log</fileNamePattern>
+			<!-- maxHIstory 설정은 위 부분에 롤링 정책에 따라 적용되 된다고 보면된다. 위 설정데로 라면 30일이 지난 파일은 
+				삭제가 된다. -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyMMdd HH:mm:ss} [%thread] %-3level %logger[%method:%line] - %msg %n</pattern>
+		</encoder>
+	</appender>
+		
+	<appender name="ERRORFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- 파일이 하루에 한개씩 생성된다 -->
+			<fileNamePattern>/var/log/tomcat9/error/error%d{yyyy-MM-dd}.log</fileNamePattern>
+			<!-- maxHIstory 설정은 위 부분에 롤링 정책에 따라 적용되 된다고 보면된다. 위 설정데로 라면 30일이 지난 파일은 
+				삭제가 된다. -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyMMdd HH:mm:ss} [%thread] %-3level %logger[%method:%line] - %msg %n</pattern>
+		</encoder>
+	</appender>
+	
+
+	<logger name="jdbc" level="OFF" />
+
+	<logger name="jdbc.sqlonly" level="INFO" />
+	<logger name="jdbc.sqltiming" level="OFF" />
+	<logger name="jdbc.audit" level="OFF" />
+	<logger name="jdbc.resultset" level="OFF" />
+	<logger name="jdbc.resultsettable" level="OFF" />
+	<logger name="jdbc.connection" level="OFF" />
+	<logger name="com.snc.pg.mapper" level="OFF"/>
+	<logger name="com.snc.pg" level="DEBUG"/>
+	<logger name="org.springframework.web" level="INFO"/>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="ERRORFILE" />
+		<appender-ref ref="LOGALLFILE" />
+	</root>
+
+</configuration>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="PostgresTables" targetRuntime="MyBatis3">
+
+        <plugin type="com.snc.common.generator.plugins.CustomLombokPlugin"/>
+        <plugin type="com.snc.common.generator.plugins.SchemaAnnotationPlugin"/>
+
+        <commentGenerator type="com.snc.common.generator.plugins.NoCommentGenerator"/>
+
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://pg-db.czqeg6yq6f0t.ap-northeast-2.rds.amazonaws.com:5432/pay_db"
+                        userId="pay_adm"
+                        password="pay_adm123!@#"/>
+
+        <javaTypeResolver type="com.snc.common.generator.plugins.CustomJavaTypeResolver"/>
+
+        <javaModelGenerator targetPackage="com.snc.common.temp"
+                            targetProject="C:/project/snc/pg-api/src/main/java"/>
+
+        <!-- 생성할 테이블 -->
+<!--            <table tableName="bank" schema="public" domainObjectName="Bank"/>-->
+<!--        <table tableName="category" schema="public" domainObjectName="Category"/>-->
+<!--        <table tableName="common_code" schema="public" domainObjectName="CommonCode"/>-->
+<!--        <table tableName="common_code_group" schema="public" domainObjectName="CommonCodeGroup"/>-->
+<!--        <table tableName="company" schema="public" domainObjectName="Company"/>-->
+<!--        <table tableName="company_account" schema="public" domainObjectName="companyAccount"/>-->
+<!--        <table tableName="company_config" schema="public" domainObjectName="companyConfig"/>-->
+<!--        <table tableName="display_category" schema="public" domainObjectName="DisplayCategory"/>-->
+<!--        <table tableName="display_category_product" schema="public" domainObjectName="DisplayCategoryProduct"/>-->
+<!--        <table tableName="domains" schema="public" domainObjectName="Domain"/>-->
+<!--        <table tableName="member" schema="public" domainObjectName="Member"/>-->
+<!--        <table tableName="member_address" schema="public" domainObjectName="MemberAddress"/>-->
+<!--        <table tableName="member_block" schema="public" domainObjectName="MemberBlock"/>-->
+<!--        <table tableName="menu" schema="public" domainObjectName="Menu"/>-->
+        <table tableName="master_transaction" schema="public" domainObjectName="MasterTransaction"/>
+<!--        <table tableName="merchant" schema="public" domainObjectName="Merchant"/>-->
+<!--        <table tableName="merchant_commission" schema="public" domainObjectName="MerchantCommission"/>-->
+<!--        <table tableName="merchant_partner_map" schema="public" domainObjectName="MerchantPartnerMap"/>-->
+<!--        <table tableName="merchant_settlement" schema="public" domainObjectName="MerchantSettlement"/>-->
+<!--        <table tableName="order_delivery" schema="public" domainObjectName="OrderDelivery"/>-->
+<!--        <table tableName="order_delivery_status_history" schema="public" domainObjectName="OrderDeliveryStatusHistory"/>-->
+<!--        <table tableName="order_intent" schema="public" domainObjectName="OrderIntent"/>-->
+<!--        <table tableName="order_intent_item" schema="public" domainObjectName="OrderIntentItem"/>-->
+<!--        <table tableName="order_item" schema="public" domainObjectName="OrderItem"/>-->
+<!--        <table tableName="order_status_history" schema="public" domainObjectName="OrderStatusHistory"/>-->
+<!--        <table tableName="orders" schema="public" domainObjectName="Order"/>-->
+<!--        <table tableName="partner" schema="public" domainObjectName="Partner"/>-->
+<!--        <table tableName="partner_auth" schema="public" domainObjectName="PartnerAuth"/>-->
+<!--        <table tableName="partner_balance" schema="public" domainObjectName="PartnerBalance"/>-->
+<!--        <table tableName="partner_domain" schema="public" domainObjectName="PartnerDomain"/>-->
+<!--            <table tableName="partner_domain_policy" schema="public" domainObjectName="PartnerDomainPolicy"/>-->
+<!--        <table tableName="partner_settlement" schema="public" domainObjectName="PartnerSettlement"/>-->
+<!--        <table tableName="payment" schema="public" domainObjectName="Payment"/>-->
+<!--        <table tableName="payment_status_history" schema="public" domainObjectName="PaymentStatusHistory"/>-->
+<!--        <table tableName="policy" schema="public" domainObjectName="Policy"/>-->
+<!--        <table tableName="policy_system" schema="public" domainObjectName="PolicySystem"/>-->
+<!--        <table tableName="product" schema="public" domainObjectName="Product"/>-->
+<!--        <table tableName="product_description" schema="public" domainObjectName="ProductDescription"/>-->
+<!--        <table tableName="product_image" schema="public" domainObjectName="ProductImage"/>-->
+<!--        <table tableName="product_price" schema="public" domainObjectName="ProductPrice"/>-->
+<!--        <table tableName="role_menu_map" schema="public" domainObjectName="RoleMenuMap"/>-->
+<!--        <table tableName="roles" schema="public" domainObjectName="Role"/>-->
+<!--        <table tableName="tenant" schema="public" domainObjectName="Tenant"/>-->
+<!--        <table tableName="user_partner" schema="public" domainObjectName="UserPartner"/>-->
+<!--        <table tableName="users" schema="public" domainObjectName="User"/>-->
+<!--        <table tableName="partner_site_config" schema="public" domainObjectName="PartnerSiteConfig"/>-->
+        <table tableName="master_bank_account" schema="public" domainObjectName="MasterBankAccount"/>
+        <table tableName="virtual_account" schema="public" domainObjectName="VirtualAccount"/>
+        <table tableName="virtual_account_deposit_log" schema="public" domainObjectName="VirtualAccountDepositLog"/>
+        <table tableName="withdrawal_request" schema="public" domainObjectName="WithdrawalRequest"/>
+    </context>
+</generatorConfiguration>
